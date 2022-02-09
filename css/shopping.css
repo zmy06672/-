@@ -1,0 +1,129 @@
+header{
+    width: 100%;
+    background-color: #e62a2a;
+    height: 50px;
+    color: #e6e4e4;
+    line-height: 50px;
+}
+header>ul{
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-around;
+}
+header a{
+    color:#e6e4e4
+}
+header>ul>li>a:hover{
+    color: white;
+}
+.container{
+    width: 1200px;
+    margin: 0 auto;
+}
+.container>div{
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+.right>div{
+    margin-bottom: 30px;
+}
+.right>div:nth-child(1){
+    font-size: 20px;
+    font-weight: bold;
+    width: 600px;
+}
+.right>div:nth-child(2){
+    font-size: 20px;
+    font-weight: 400;
+}
+.right>div:nth-child(3){
+    font-size: 17px;
+    width: 100%;
+}
+.right>div:nth-child(3)>select{
+    width: 90%;
+    height: 50px;
+    outline: none;
+}
+.right>div:nth-child(4)>div{
+    font-size: 15px;
+    font-weight: 520;
+}
+.right>div:nth-child(4)>div>span{
+    font-weight: 400;
+    color: rgb(142, 142, 142);
+}
+.right>div:nth-child(4)>div:nth-child(2){
+    margin-right: 150px;
+}
+.right>div:nth-child(5)>span{
+    color: rgb(142, 142, 142);
+}
+.right>div:nth-child(6)>div:nth-child(2)>span{
+    color: rgb(142,142,142);
+}
+.right>div:nth-child(6)>div:nth-child(3)>span{
+    color: rgb(142,142,142);
+}
+.right>div:nth-child(7){
+    display: flex;
+    justify-content: space-around;
+}
+.right>div:nth-child(7)>button{
+    width: 150px;
+    padding:8px;
+    background-color: black;
+    color:white;
+    font-weight: bold;
+    font-size: 17px;
+}
+.container>div:nth-child(2){
+    
+    display: block;
+    width: 800px;
+    margin: 0 auto;
+}
+.container>div:nth-child(2)>ul{
+    margin-top: 80px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    color: #989595;
+}
+.container>div:nth-child(2) li:nth-child(1){
+    color: rgb(228, 103, 124);
+    font-weight: bold;
+}
+.littlenav>h2{
+    font-size: 45px;
+}
+.littlenav>h3{
+    font-size: 25px;
+}
+.littlenav>p{
+    text-indent: 2rem;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+footer{
+    width: 100%;
+    margin-top: 50px;
+    color: #989595;
+}
+footer>div:nth-child(2)>ul>li:nth-child(1){
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+footer li:hover{
+    color: #fde067;
+}
