@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/gouwuche.css">
+</head>
+<body>
+    <header style="position: relative;">
+        <ul>
+            <li><a href="./index.html">全部产品</a></li>
+            <li><a href="./shopping.html">彩妆专区</a></li>
+            <li><a href="./shopping.html">护肤专区</a></li>
+            <li><a href="./dashi.html">大牌推荐</a></li>
+            <li><a href="./gouwuche.html" style="vertical-align: middle;">订单购物车<img src="./images/shoppingcar.png" alt="" style="width: 25px;vertical-align: middle;"></a></li>
+        </ul>
+        
+    </header>
+    <div class="con2"></div>
+    <div class="container">
+    </div>
+    <footer>
+        <div style="display: flex;width: 1200px;justify-content: space-around;margin: 0 auto;">
+            <div>
+                <img src="./images/zhengpinhuoyuan.png" alt="">
+                <div>正品货源</div>
+            </div>
+            <div>
+                <img src="./images/quanqiuzhicai.png" alt="">
+                <div>全球直采</div>
+            </div>
+            <div>
+                <img src="./images/ziyingcangku.png" alt="">
+                <div>自营仓库</div>
+            </div>
+            <div>
+                <img src="./images/rucangjianyan.png" alt="">
+                <div>入仓检验</div>
+            </div>
+            <div>
+                <img src="./images/zhengpinbaoxian.png" alt="">
+                <div>保险保障</div>
+            </div>
+            <div>
+                <img src="./images/wuyoutuihuan.png" alt="">
+                <div>无忧退货</div>
+            </div>
+            <div>
+                <img src="./images/wanqianxinlai.png" alt="">
+                <div>万千信赖</div>
+            </div>
+        </div>
+        <div style="display: flex;justify-content: space-around;width: 1200px;font-size: 13px;margin: 0 auto;margin-top: 40px;">
+            <ul class="foo">
+                <li>服务保障</li>
+                <li>正品保证</li>
+                <li>7天无理由放心退</li>
+                <li>7x15小时客户服务</li>
+                <li>7天无理由随心换</li>
+            </ul>
+            <ul class="foo">
+                <li>购物指南</li>
+                <li>导购演示</li>
+                <li>订单操作</li>
+                <li>会员注册</li>
+                <li>账户管理</li>
+                <li>收货样品</li>
+                <li>会员等级</li>
+            </ul>
+            <ul class="foo">
+                <li>支付方式</li>
+                <li>23家主流网银支付</li>
+                <li>支付宝、银联等支付</li>
+                <li>信用卡支付</li>
+                <li>零钱支付</li>
+            </ul>
+            <ul class="foo">
+                <li>配送方式</li>
+                <li>配送范围及运费</li>
+                <li>验货与签收</li>
+            </ul>
+            <ul class="foo">
+                <li>售后服务</li>
+                <li>退货政策</li>
+                <li>退货流程</li>
+                <li>退款方式和时效</li>
+                <li>换货服务</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script>
+    if(Number(localStorage.getItem('num'))==0){
+        document.getElementsByClassName('con2')[0].innerHTML = `
+            <h1>购物车为空</h1>
+        `
+    }
+    var container = document.getElementsByClassName('container')[0];
+    var num = localStorage.getItem('num')
+    for(var i=1;i<=num;i++){
+        // console.log(localStorage.getItem('shoucang'+i))
+        var obj = JSON.parse(localStorage.getItem('shoucang'+i))
+        container.innerHTML += `
+            <div>
+                <img src="${obj.src}" alt="">
+                <div>${obj.name}</div>
+                <div>${obj.much}</div>
+                <div>${obj.time}</div>
+                <div id='del${i}' onclick="del(this)">删除</div>
+            </div>
+        `
+    }
+    function del(e){
+        for(var i=1;i<=num;i++){
+            if(i>e.id.replace('del','')){
+                localStorage.setItem('shoucang'+(i-1),localStorage.getItem('shoucang'+i))
+            }
+        }
+        console.log(localStorage)
+        localStorage.removeItem('shoucang'+num)
+        localStorage.setItem('num',--num)
+        container.innerHTML = ''
+        for(var i=1;i<=num;i++){
+            var obj = JSON.parse(localStorage.getItem('shoucang'+i))
+            container.innerHTML += `
+                <div>
+                    <img src="${obj.src}" alt="">
+                    <div>${obj.name}</div>
+                    <div>${obj.much}</div>
+                    <div>${obj.time}</div>
+                    <div id='del${i}' onclick="del(this)">删除</div>
+                </div>
+            `
+        }
+        if(Number(localStorage.getItem('num'))==0){
+            document.getElementsByClassName('con2')[0].innerHTML = `
+                <h1>购物车为空</h1>
+            `
+        }
+    }
+</script>
+</html>
